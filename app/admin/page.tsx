@@ -100,18 +100,18 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div style={{ minHeight: '100vh', backgroundColor: '#020617', color: '#fff', display: 'flex', itemsCenter: 'center', justifyContent: 'center', fontFamily: 'sans-serif' }}>
-        <form onSubmit={handleLogin} style={{ backgroundColor: '#0f172a', padding: '2rem', borderRadius: '1rem', border: '1px solid #1e293b', width: '100%', maxWidth: '400px' }}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#22d3ee', marginBottom: '0.5rem' }}>Вход в Админ-панель</h1>
-          <p style={{ color: '#94a3b8', fontSize: '0.875rem', marginBottom: '1.5rem' }}>Введите пароль для доступа к CIRCUIT</p>
+      <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center p-4">
+        <form onSubmit={handleLogin} className="bg-slate-900 border border-slate-800 p-8 rounded-xl max-w-md w-full space-y-4">
+          <h1 className="text-2xl font-bold text-cyan-400">Вход в Админ-панель</h1>
+          <p className="text-slate-400 text-sm">Введите пароль для доступа к CIRCUIT</p>
           <input
             type="password"
             placeholder="Пароль (admin123)"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ width: '100%', padding: '0.75rem', backgroundColor: '#020617', border: '1px solid #334155', borderRadius: '0.5rem', color: '#fff', marginBottom: '1rem', outline: 'none' }}
+            className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500"
           />
-          <button type="submit" style={{ width: '100%', padding: '0.75rem', backgroundColor: '#06b6d4', color: '#000', fontWeight: 'bold', border: 'none', borderRadius: '0.5rem', cursor: 'pointer' }}>
+          <button type="submit" className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold p-3 rounded-lg transition cursor-pointer">
             Войти
           </button>
         </form>
@@ -120,37 +120,37 @@ export default function AdminPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#020617', color: '#fff', padding: '2rem', fontFamily: 'sans-serif' }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1e293b', paddingBottom: '1rem', marginBottom: '2rem' }}>
-          <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#22d3ee' }}>Панель управления CIRCUIT</h1>
-          <button onClick={() => setIsAuthenticated(false)} style={{ backgroundColor: '#1e293b', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '0.5rem', cursor: 'pointer' }}>
+    <div className="min-h-screen bg-slate-950 text-white p-6">
+      <div className="max-w-6xl mx-auto space-y-6">
+        <div className="flex justify-between items-center border-b border-slate-800 pb-4">
+          <h1 className="text-3xl font-bold text-cyan-400">Панель управления CIRCUIT</h1>
+          <button onClick={() => setIsAuthenticated(false)} className="text-sm bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg cursor-pointer">
             Выйти
           </button>
         </div>
 
         {/* Форма создания статьи */}
-        <div style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', padding: '1.5rem', borderRadius: '0.75rem', marginBottom: '2rem' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#22d3ee' }}>Опубликовать новую статью</h2>
-          <form onSubmit={handleCreate} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div className="bg-slate-900 border border-slate-800 p-6 rounded-xl space-y-4">
+          <h2 className="text-xl font-bold text-cyan-400">Опубликовать новую статью</h2>
+          <form onSubmit={handleCreate} className="space-y-4">
             <div>
-              <label style={{ display: 'block', color: '#94a3b8', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Заголовок статьи</label>
+              <label className="block text-slate-400 text-sm mb-1">Заголовок статьи</label>
               <input
                 type="text"
                 placeholder="например: Обзор Samsung Galaxy S26 Ultra"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
-                style={{ width: '100%', padding: '0.75rem', backgroundColor: '#020617', border: '1px solid #334155', borderRadius: '0.5rem', color: '#fff', outline: 'none' }}
+                className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500"
               />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label style={{ display: 'block', color: '#94a3b8', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Категория</label>
+                <label className="block text-slate-400 text-sm mb-1">Категория</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  style={{ width: '100%', padding: '0.75rem', backgroundColor: '#020617', border: '1px solid #334155', borderRadius: '0.5rem', color: '#fff', outline: 'none' }}
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500"
                 >
                   <option value="SMARTPHONES">SMARTPHONES</option>
                   <option value="PC HARDWARE">PC HARDWARE</option>
@@ -160,28 +160,28 @@ export default function AdminPage() {
                 </select>
               </div>
               <div>
-                <label style={{ display: 'block', color: '#94a3b8', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Время чтения</label>
+                <label className="block text-slate-400 text-sm mb-1">Время чтения</label>
                 <input
                   type="text"
                   placeholder="5 min read"
                   value={readTime}
                   onChange={(e) => setReadTime(e.target.value)}
-                  style={{ width: '100%', padding: '0.75rem', backgroundColor: '#020617', border: '1px solid #334155', borderRadius: '0.5rem', color: '#fff', outline: 'none' }}
+                  className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500"
                 />
               </div>
             </div>
             <div>
-              <label style={{ display: 'block', color: '#94a3b8', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Краткое описание (анонс)</label>
+              <label className="block text-slate-400 text-sm mb-1">Краткое описание (анонс)</label>
               <textarea
-                placeholder="Краткий анонс статьи для главной страницы..."
+                placeholder="Краткий анонс статьи..."
                 value={excerpt}
                 onChange={(e) => setExcerpt(e.target.value)}
                 rows={3}
                 required
-                style={{ width: '100%', padding: '0.75rem', backgroundColor: '#020617', border: '1px solid #334155', borderRadius: '0.5rem', color: '#fff', outline: 'none' }}
+                className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-cyan-500"
               />
             </div>
-            <button type="submit" style={{ alignSelf: 'flex-start', padding: '0.75rem 1.5rem', backgroundColor: '#06b6d4', color: '#000', fontWeight: 'bold', border: 'none', borderRadius: '0.5rem', cursor: 'pointer' }}>
+            <button type="submit" className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold px-6 py-3 rounded-lg transition cursor-pointer">
               + Опубликовать статью
             </button>
           </form>
@@ -189,16 +189,16 @@ export default function AdminPage() {
 
         {/* Список статей */}
         <div>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>Управление публикациями ({articles.length})</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <h2 className="text-xl font-bold mb-4">Управление публикациями ({articles.length})</h2>
+          <div className="space-y-3">
             {articles.map((art) => (
-              <div key={art.id} style={{ backgroundColor: '#0f172a', border: '1px solid #1e293b', padding: '1rem 1.5rem', borderRadius: '0.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div key={art.id} className="bg-slate-900 border border-slate-800 p-4 rounded-xl flex justify-between items-center">
                 <div>
-                  <span style={{ color: '#22d3ee', fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '1px' }}>{art.category}</span>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: '0.25rem 0' }}>{art.title}</h3>
-                  <p style={{ color: '#94a3b8', fontSize: '0.875rem', margin: 0 }}>{art.excerpt}</p>
+                  <span className="text-cyan-400 text-xs font-bold tracking-wider">{art.category}</span>
+                  <h3 className="text-lg font-bold mt-1">{art.title}</h3>
+                  <p className="text-slate-400 text-sm">{art.excerpt}</p>
                 </div>
-                <button onClick={() => handleDelete(art.id)} style={{ backgroundColor: '#ef4444', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '0.5rem', cursor: 'pointer', marginLeft: '1rem', whiteSpace: 'nowrap' }}>
+                <button onClick={() => handleDelete(art.id)} className="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-2 rounded-lg transition ml-4 cursor-pointer">
                   Удалить
                 </button>
               </div>
